@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+const url='http://localhost:3000/users'
 const Home = () => {
     const [users, setUsers] = React.useState([]);
 
@@ -7,11 +8,23 @@ const Home = () => {
     }, []);
 
     const displayUsers = async ()=> {
-        const url='http://localhost:3000/users'
+        // const url='http://localhost:3000/users'
         const response= await fetch(url);
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
         setUsers(data);
+        
+    }
+    const deleteUser = async (id) => {
+        const response = await fetch(url + '/' + id,{
+            method: "DELETE",
+            
+        })
+        const data = await response.json();
+        if (data) {
+            alert("User Deleted Successfully");
+            displayUsers(); // Refresh the user list after deletion
+        }
         
     }
   return (
@@ -26,6 +39,7 @@ const Home = () => {
                             <th>Last Name</th>
                             <th>Age</th>
                             <th>Email</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -36,7 +50,7 @@ const Home = () => {
                                 <td>{user.lastName}</td>
                                 <td>{user.age}</td>
                                 <td>{user.email}</td>
-                                <td><button>Delete</button></td>
+                                <td><button onClick={()=>deleteUser(user.id)}>Delete</button></td>
                             </tr>
                         ))}
                     </tbody>

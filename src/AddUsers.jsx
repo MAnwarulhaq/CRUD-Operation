@@ -21,19 +21,20 @@ const AddUsers = () => {
       setName('');
       setAge('');
       setEmail('');
+      setLastName('');
     }
 
   };
   return (
     <div style={{ textAlign: "center"}}>
       <h1>Add New Users</h1>
-      <input type="text" name="" id="" placeholder='Enter Your First Name' onChange={(e)=>setName(e.target.value)} /> 
+      <input type="text" name="" id="" value={name} placeholder='Enter Your First Name' onChange={(e)=>setName(e.target.value)} /> 
       <br /><br />
-      <input type="text" name="" id="" placeholder='Enter Your last Name' onChange={(e)=>setLastName(e.target.value)} /> 
+      <input type="text" name="" id="" value={lastName} placeholder='Enter Your last Name' onChange={(e)=>setLastName(e.target.value)} /> 
       <br /><br />
-      <input type="text" name="" id="" placeholder='Enter Your Age' onChange={(e)=>setAge(e.target.value)} />
+      <input type="text" name="" id="" value={age} placeholder='Enter Your Age' onChange={(e)=>setAge(e.target.value)} />
       <br /><br />
-      <input type="text" name="" id="" placeholder='Enter Your Email' onChange={(e)=>setEmail(e.target.value)} />
+      <input type="text" name="" id="" value={email} placeholder='Enter Your Email' onChange={(e)=>setEmail(e.target.value)} />
       <br /><br />
       <button onClick={handleAddUser}>Add User</button>
     </div>
