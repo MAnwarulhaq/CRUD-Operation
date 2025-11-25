@@ -132,6 +132,8 @@ const Home = () => {
     }
   };
 
+  // console.log(users)
+
   return (
     <div
       style={{
@@ -145,6 +147,7 @@ const Home = () => {
       }}
     >
       <h1>Users List</h1>
+
 
       {/* 🌙☀️ Theme Toggle Button */}
       <button
@@ -162,6 +165,7 @@ const Home = () => {
       >
         Switch to {theme === 'light' ? 'Dark' : 'Light'} Mode
       </button>
+      <h1>{users.length}</h1>
 
       {/* 🧍‍♂️ Users Table */}
       {loading ? (
@@ -184,21 +188,23 @@ const Home = () => {
               <th>Last Name</th>
               <th>Age</th>
               <th>Email</th>
-              <th>Action</th>
+              <th>Delete User</th>
+              <th>Edit User</th>
+
             </tr>
           </thead>
           <tbody>
             {users.map((user) => (
               <tr key={user.id}>
                 <td>{user.name}</td>
-                <td>{user.lastName}</td>
+                <td>{user.lastname}</td>
                 <td>{user.age}</td>
                 <td>{user.email}</td>
                 <td>
                   <button onClick={() => deleteUser(user.id)}>Delete</button>
                 </td>
                 <td>
-                  <Link to={`/edit/${user.id}`}>
+                  <Link to={`/updateuser/${user.id}`}>
                     <button>Edit</button>
                   </Link>
                 </td>

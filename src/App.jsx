@@ -4,7 +4,9 @@ import Navbar from './Navbar'
 import Home from './Home'
 import AddUsers from './AddUsers'
 import UserEdit from './UserEdit'
-
+import AddUser from './crudoperation/AddUser'
+import GetUser from './crudoperation/GetUser'
+import UpdateUser from './crudoperation/UpdateUser'
 const App = () => {
   return (
     <>
@@ -13,8 +15,10 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/addusers" element={<AddUsers />} />
-        <Route path="/edit/:id" element={<UserEdit />} />
+        <Route path="/updateuser/:id" element={<UpdateUser />} />
       </Routes>
+      {/* <AddUser/> */}
+      {/* <GetUser/> */}
 
 
     </>

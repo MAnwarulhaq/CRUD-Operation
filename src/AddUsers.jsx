@@ -3,7 +3,7 @@ import React from 'react';
 
 const AddUsers = () => {
   const [name, setName] = React.useState('');
-  const [lastName, setLastName] = React.useState('');
+  const [lastname, setLastName] = React.useState('');
   const [age, setAge] = React.useState('');
   const [email, setEmail] = React.useState('');
   const handleAddUser = async() => {
@@ -13,7 +13,7 @@ const AddUsers = () => {
       // headers: {
       //   "Content-Type": "application/json"
       // },
-      body: JSON.stringify({ name,lastName, age, email })
+      body: JSON.stringify({ name,lastname, age, email })
     });
     const data = await response.json();
     if(data) {
@@ -30,11 +30,11 @@ const AddUsers = () => {
       <h1>Add New Users</h1>
       <input type="text" name="" id="" value={name} placeholder='Enter Your First Name' onChange={(e)=>setName(e.target.value)} /> 
       <br /><br />
-      <input type="text" name="" id="" value={lastName} placeholder='Enter Your last Name' onChange={(e)=>setLastName(e.target.value)} /> 
+      <input type="text" name="" id="" value={lastname} placeholder='Enter Your last Name' onChange={(e)=>setLastName(e.target.value)} /> 
       <br /><br />
-      <input type="text" name="" id="" value={age} placeholder='Enter Your Age' onChange={(e)=>setAge(e.target.value)} />
+      <input type="number" name="" id="" value={age} placeholder='Enter Your Age' onChange={(e)=>setAge(e.target.value)} />
       <br /><br />
-      <input type="text" name="" id="" value={email} placeholder='Enter Your Email' onChange={(e)=>setEmail(e.target.value)} />
+      <input type="email" name="" id="" value={email} placeholder='Enter Your Email' onChange={(e)=>setEmail(e.target.value)} />
       <br /><br />
       <button onClick={handleAddUser}>Add User</button>
     </div>
